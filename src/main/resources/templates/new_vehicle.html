@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать/обновить</title>
+</head>
+<body>
+
+<p>Если вы хотите изменить существующий транспорт - введите его id
+
+<form th:method="POST" th:action="@{/vehicles}" th:object="${vehicleDTO}">
+    <label for="carBrand">Марка: </label>
+    <input type="text" th:field="*{carBrand}" id="carBrand"><br><br>
+    <label for="carModel">Модель: </label>
+    <input type="text" th:field="*{carModel}" id="carModel"><br><br>
+    <label for="carCategory">Категория: </label>
+    <input type="text" th:field="*{carCategory}" id="carCategory"><br><br>
+    <label for="stateNumber">Госномер: </label>
+    <input type="text" th:field="*{stateNumber}" id="stateNumber"><br><br>
+    <label for="carType">Тип: </label>
+    <input type="text" th:field="*{carType}" id="carType"><br><br>
+    <label for="yearOfProduction">Год выпуска: </label>
+    <input type="text" th:field="*{yearOfProduction}" id="yearOfProduction"><br><br>
+    <label for="hasTrailer">Есть прицеп? </label>
+    <input type="checkbox" th:field="*{hasTrailer}" id="hasTrailer"><br><br>
+    <label for="countOfAxles">Количество осей: </label>
+    <input type="text" th:field="*{countOfAxles}" id="countOfAxles"><br><br>
+    <label for="countOfPassengers">Количество пассажиров: </label>
+    <input type="text" th:field="*{countOfPassengers}" id="countOfPassengers"><br><br>
+    <input type="submit" value="Create!">
+
+</form>
+
+</body>
+</html>

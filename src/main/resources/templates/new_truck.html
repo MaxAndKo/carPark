@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Грузовик</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/vehicles/truck}" th:object="${vehicle}">
+    <label for="carBrand">Марка: </label>
+    <input type="text" th:field="*{carBrand}" id="carBrand"><br><br>
+    <label for="carModel">Модель: </label>
+    <input type="text" th:field="*{carModel}" id="carModel"><br><br>
+    <label for="carCategory">Категория: </label>
+    <input type="text" th:field="*{carCategory}" id="carCategory"><br><br>
+    <label for="stateNumber">Госномер: </label>
+    <input type="text" th:field="*{stateNumber}" id="stateNumber"><br><br>
+    <label for="carType">Тип: </label>
+    <input type="text" th:field="*{carType}" id="carType"><br><br>
+    <label for="yearOfProduction">Год выпуска: </label>
+    <input type="text" th:field="*{yearOfProduction}" id="yearOfProduction"><br><br>
+    <label for="hasTrailer">Есть прицеп? </label>
+    <input type="checkbox" th:field="*{hasTrailer}" id="hasTrailer"><br><br>
+    <label for="loadCapacity">Максимальная нагрузка: </label>
+    <input type="text" th:field="*{loadCapacity}" id="loadCapacity"><br><br>
+    <label for="isBodyClosed">Закрытый кузов? </label>
+    <input type="checkbox" th:field="*{isBodyClosed}" id="isBodyClosed"><br><br>
+    <input type="submit" value="Create!">
+
+</form>
+
+</body>
+</html>

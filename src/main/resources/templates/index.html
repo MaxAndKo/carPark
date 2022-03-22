@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Транспорт</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Марка</th>
+        <th scope="col">Модель</th>
+        <th scope="col">Категория</th>
+        <th scope="col">Госномер</th>
+        <th scope="col">Тип</th>
+        <th scope="col">Год выпуска</th>
+        <th scope="col">Есть прицеп?</th>
+        <th scope="col">Максимальная нагрузка</th>
+        <th scope="col">Закрытый кузов?</th>
+        <th scope="col">Тип прицепа</th>
+        <th scope="col">Тип движителя</th>
+        <th scope="col">Количество осей</th>
+        <th scope="col">Количество пассажиров</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vehicle : ${vehiclesDTO}">
+        <td th:text="${vehicle.getCarBrand()}">CarBrand</td>
+        <td th:text="${vehicle.getCarModel()}">CarModel</td>
+        <td th:text="${vehicle.getCarCategory()}">CarCategory</td>
+        <td th:text="${vehicle.getStateNumber()}">StateNumber</td>
+        <td th:text="${vehicle.getCarType()}">CarType</td>
+        <td th:text="${vehicle.getYearOfProduction()}">YearOfProduction</td>
+        <td th:text="${vehicle.getHasTrailer()}">HasTrailer</td>
+        <td th:text="${vehicle.getLoadCapacity()}">LoadCapacity</td>
+        <td th:text="${vehicle.getIsBodyClosed()}">IsBodyClosed</td>
+        <td th:text="${vehicle.getTrailerType()}">TrailerType</td>
+        <td th:text="${vehicle.getMoverType()}">MoverType</td>
+        <td th:text="${vehicle.getCountOfAxles()}">CountOfAxles</td>
+        <td th:text="${vehicle.getCountOfPassengers()}">CountOfPassengers</td>
+    </tr>
+
+
+</table>
+
+<form method="GET" action="/vehicles">
+
+    <p>Фильтрация</p>
+    <label for="carBrand">Марка: </label>
+    <input type="text" id="carBrand" name="carBrand">
+    <label for="carModel">Модель: </label>
+    <input type="text" id="carModel" name="carModel">
+    <label for="carCategory">Категория: </label>
+    <input type="text" id="carCategory" name="carCategory">
+    <label for="carStateNumber">Госномер: </label>
+    <input type="text" id="carStateNumber" name="carStateNumber">
+    <label for="YearOfProduction">Год выпуска: </label>
+    <input type="text" id="YearOfProduction" name="YearOfProduction">
+    <input type="submit" value="Фильтр">
+
+</form>
+
+<!--<div th:each="vehicle : ${vehicles}">-->
+<!--    <p th:text="${vehicle.toString()}">vehicle</p>-->
+<!--</div>-->
+
+<br>
+<br>
+
+<a href="/vehicles/new/tractor">Create new</a>
+</body>
+</html>
